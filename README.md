@@ -383,6 +383,7 @@ We release these scripts as **open tools for the research community** to:
 - Support for more model architectures (Gemma, Mistral, Qwen)
 - Batch processing optimization for large-scale experiments
 - Visualization tools for iteration analysis
+- More CEFR levels compatibility
 
 **We encourage researchers to:**
 - Adapt these scripts for their own models
@@ -425,4 +426,5 @@ This work was supported by the Romanian National Research Council (CNCS) through
 University of Bucharest
 
 Human Language Technologies Research Center  
+
 
