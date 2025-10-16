@@ -229,7 +229,7 @@ class CEFRIterativeSimplificationTester:
                                   model_name: str = ""):
         """
         Generate appropriate simplification prompt based on model type and iteration feedback.
-        Supports standard Llama, Sergiu-formatted, and Qwen models.
+        Supports standard Llama and Qwen models.
         """
         base_feedback = ""
         if current_level and iteration > 0:
@@ -241,7 +241,7 @@ class CEFRIterativeSimplificationTester:
                 else:
                     base_feedback += "The text is TOO SIMPLE. Add more complexity while staying at target level."
 
-        if 'sergiu' in model_name:
+        if 'keyword' in model_name: #where keyword can be any identifier
             return self.create_prompt(original_text, level=target_level, feedback=base_feedback)
         elif 'qwen' in model_name:
             return self.create_prompt_qwen(original_text, level=target_level, feedback=base_feedback)
