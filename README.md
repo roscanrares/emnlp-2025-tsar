@@ -203,7 +203,9 @@ MAX_ITERATIONS = 5                                # Maximum attempts per text
 
 **2. `model_comparison_pipeline.py` - Multi-Model Batch Processing**
 
-Batch processes multiple models for systematic comparison. Designed for evaluating different fine-tuning configurations, architectures, or training strategies.
+This script was implemented to facilitate systematic comparisons between multiple models fine-tuned with different configurations.
+
+Primary Purpose: To enable simultaneous evaluation and comparison of multiple models that were trained with different configurations, architectures, or training strategies.
 
 **Key Features:**
 - Process multiple models in sequence with automatic cleanup
@@ -423,3 +425,4 @@ This work was supported by the Romanian National Research Council (CNCS) through
 University of Bucharest
 
 Human Language Technologies Research Center  
+
