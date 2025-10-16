@@ -1,0 +1,85 @@
+base_model: "meta-llama/Meta-Llama-3.1-8B-Instruct"
+
+
+model_type: LlamaForCausalLM
+tokenizer_type: AutoTokenizer
+
+load_in_8bit: false
+load_in_4bit: false
+strict: false
+
+datasets:
+  - path: ../datasets/made_with_llama3.1-8b_a2_dataset_complex.csv
+
+    ds_type: csv
+    type:
+      field_input: input
+      field_instruction: instruction
+      field_output: output
+      format: "<|start_header_id|>system<|end_header_id|>\nYou are an expert on CEFR with deep understanding of automatic language assessment systems.\n\nA2 LANGUAGE REQUIREMENTS:\n- Vocabulary: Most common 1500 English words only\n- Sentences: 8-12 words, one clear idea per sentence\n- Grammar: Simple present/past, basic future (will), basic modals (can/must/should)\n- Connectors: and, but, because, so, when, if, then\n- Style: Personal, concrete, everyday language\n\nSTRICT LEVEL CONTROL:\n- Above A1: Include personal experiences, feelings, plans, time references\n- Below B1: No present perfect, passive voice, or complex connectors (however, although, despite)\n- Below B1: No abstract concepts without concrete explanation\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n{instruction}\n{input}\n<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+      no_input_format: 
+ 
+
+seed: 42
+      
+
+default_system_message:
+chat_template: null
+output_dir: models/llama3.1_single_a2_complex/
+debug:
+
+
+val_set_size: 0.1   
+sequence_len: 1024
+sample_packing: true
+eval_sample_packing: false
+pad_to_sequence_len: false
+
+wandb_project: final
+wandb_name: single_a2_complex
+wandb_run_id:
+wandb_log_model:
+
+gradient_accumulation_steps: 32
+micro_batch_size: 1
+num_epochs: 3
+optimizer: adamw_bnb_8bit
+lr_scheduler: cosine
+learning_rate: 5e-6
+
+
+train_on_inputs: false
+group_by_length: false
+bf16: auto
+fp16:
+tf32: false
+
+eval_causal_lm_metrics:
+  - perplexity
+
+eval_batch_size: 8
+gradient_checkpointing: false
+resume_from_checkpoint:
+local_rank:
+logging_steps: 1   
+
+xformers_attention:
+flash_attention: false
+
+warmup_steps: 50
+eval_steps: 20
+saves_per_epoch: 1
+debug:
+deepspeed:
+weight_decay: 0.001
+# adamw hyperparams
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_epsilon: 1e-8
+
+early_stopping_patience: 
+
+fsdp:
+fsdp_config:
+special_tokens:
+  pad_token: <|end_of_text|>
