@@ -1,6 +1,8 @@
 # Archaeology at TSAR 2025: Teaching Small Models to do CEFR Simplifications
 
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![Dataset](https://img.shields.io/badge/🤗%20Dataset-CEFR--Simplifications-blue)](https://huggingface.co/datasets/roscanrares/CEFR-Simplifications) [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/) 
+
+
 
 ## Overview
 
@@ -30,15 +32,15 @@ Notably, our **LLaMA 3.1 8B** model achieved competitive results despite being s
 │
 ├── axolotl_finetune/
 │   ├── configs/                         # Axolotl training configuraotions
-│   └── datasets/                        # !! Available in release
+│   └── datasets/                        # !! Available on hugginface
 │
 ├── tsar2025sharedtask_evaluation/       # Official evaluation scripts
 │
-├── simplifications/                     # !! Available in release
+├── simplifications/                     # !! Available on hugginface
 │
-├── tsar2025_test.jsonl                  # !! Available in release
-├── tsar2025_test_blind.jsonl            # !! Available in release
-├── tsar2025_trial.jsonl                 # !! Available in release
+├── tsar2025_test.jsonl                  # !! Available on hugginface
+├── tsar2025_test_blind.jsonl            # !! Available on hugginface
+├── tsar2025_trial.jsonl                 # !! Available on hugginface
 │
 ├── claude.ipynb                         # Notebook for Claude simplifications
 ├── gpt.ipynb                            # Notebook for GPT simplifications
@@ -397,7 +399,7 @@ To replicate our fine-tuning experiments:
 ```bash
 cd axolotl_finetune
 
-# Download synthetic training data from releases first
+# Download synthetic training data from hugginface
 # Then run Axolotl training
 axolotl train configs/llama_3.2_1b_a2.yml
 axolotl train configs/llama_3.2_1b_b1.yml
@@ -426,5 +428,6 @@ This work was supported by the Romanian National Research Council (CNCS) through
 University of Bucharest
 
 Human Language Technologies Research Center  
+
 
 
